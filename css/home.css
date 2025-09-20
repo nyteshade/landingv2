@@ -1,0 +1,11 @@
+.repl-container {
+  position: relative;
+  width: 1024px;
+
+  button {
+    position: absolute;
+    right: 0.25em;
+    margin-top: 0.5em;
+    padding: 0.25em;
+  }
+}

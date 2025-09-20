@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iLanding</title>
+    <script type="application/javascript" src="src/pageprep.js"></script>
+    <script type="module" src="src/dbinit.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@electric-sql/pglite-repl/dist-webcomponent/Repl.js"></script>
+    <link rel="stylesheet" href="css/home.css">
+  </head>
+
+  <body>
+    <h3>Access the database directly</h3>
+    <div class="repl-container">
+      <pglite-repl id="repl" border="true"></pglite-repl>
+      <script type="module" src="src/replprep.js"></script>
+      <button>Clear</button>
+    </div>
+  </body>
+</html>
