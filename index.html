@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>iLanding</title>
-    <script type="application/javascript" src="src/pageprep.js"></script>
+    <script src="src/pageprep.js"></script>
     <script type="module" src="src/dbinit.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@electric-sql/pglite-repl/dist-webcomponent/Repl.js"></script>
     <link rel="stylesheet" href="css/home.css">
@@ -15,5 +15,68 @@
       <script type="module" src="src/replprep.js"></script>
       <button>Clear</button>
     </div>
+
+    <section new-link>
+      <article link>
+        <span link-icon><img src="imgs/link.png"></span>
+        <span href-container>
+          <select scheme name="scheme">
+            <option value="http:">http://</option>
+            <option value="https:">https://</option>
+            <option value="ftp:">ftp://</option>
+            <option value="file:">file://</option>
+            <option value="mailto:">mailto://</option>
+            <option value="tel:">tel://</option>
+            <option value="custom:">custom://</option>
+          </select>
+          <input url-input type="text" name="url">
+          <button alt="todo: show dialog">
+            <img
+              srcset="imgs/folder_24px.png, imgs/folder_32px.png 1.5x, imgs/folder_48px.png 2x"
+              src="imgs/folder_400px.png"
+            />
+          </button>
+
+          <script type="module">
+            const input = document.querySelector('input[url-input]')
+            const validate = debounce(function(event) {
+              try {
+                const container = event.target.parentNode
+                const select = container.querySelector('select[scheme]')
+
+                if (event.target.value.length === 0) {
+                  select.selectedIndex = 0
+                  return
+                }
+
+                const url = new URL(event.target.value)
+                const remaining = event.target.value.replace(`${url.protocol}//`, '')
+                const options = [...select.options]
+                const match = options.filter(o => o.value == url.protocol)
+
+                if (match.length) {
+                  const index = options.indexOf(match[0])
+                  select.selectedIndex = index
+                  event.target.value = remaining
+                }
+                else {
+                  select.selectedIndex = options.length - 1
+                }
+              }
+              catch { }
+            }, 300)
+
+            input.addEventListener('change', validate)
+            input.addEventListener('keyup', validate)
+          </script>
+        </span>
+      </article>
+      <article description>
+        Desc
+      </article>
+      <article controls>
+        <button>Go</button>
+      </article>
+    </section>
   </body>
 </html>

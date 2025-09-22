@@ -1,11 +1,125 @@
+html {
+  font-family: system-ui;
+
+  body {
+    font-family: system-ui;
+  }
+}
+
 .repl-container {
   position: relative;
   width: 1024px;
+  margin-bottom: 1em;
 
   button {
     position: absolute;
     right: 0.25em;
     margin-top: 0.5em;
     padding: 0.25em;
+  }
+}
+
+section[new-link] {
+  margin-top: 2em;
+
+  display: inline-flex;
+  border: 1px solid black;
+  padding: 0.3em;
+  background-image: linear-gradient(360deg, rgb(33 34 45), rgb(12 17 23), rgb(52 51 62));
+
+  border-radius: 0.25em;
+  border-top-color: darkgray;
+  border-left-color: darkgray;
+  border-right-color: hsl(0 0% 33% / 1);
+  border-bottom-color: hsl(0 0% 33% / 1);
+
+  align-content: center;
+  align-items: center;
+
+  article[link], article[description], article[controls] {
+    display: inline-flex;
+  }
+
+  article[link] {
+    span[link-icon] img {
+      height: 1em;
+      vertical-align: middle;
+    }
+
+    span[label] {
+      color: white;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    span[href-container] {
+      position: relative;
+      display: inline-block;
+      display: inline-flex;
+      margin: 0 0.25em;
+
+      select[scheme] {
+        position: relative;
+        text-align: right;
+        border-right: 1px solid black;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        /* background-image: linear-gradient(0deg, darkblue, dodgerblue); */
+        background-image: linear-gradient(0deg, darkred, red, indianred);
+        color: white;
+        text-shadow: 1px 1px 1px black;
+        border-color: black;
+        appearance: none;
+        padding: 0 0.75em;
+        align-self: stretch;
+        display: inline-flex;
+
+        option {
+          text-align: right;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      input[type=text] {
+        background-image: linear-gradient(0deg, white, rgb(232 232 232));
+        border: 1px solid black;
+        position: relative;
+        z-index: 1;
+        border-left: none;
+        color: black;
+        text-shadow: 1px 1px 1px rgb(169 169 169/60%);
+        padding: 2px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      button {
+        border: 1px solid black;
+        border-left: none;
+        border-radius: 3px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        justify-items: center;
+        align-items: center;
+        display: inline-flex;
+        position: relative;
+        background-image: linear-gradient(0deg, darkred, red, indianred);
+
+        img {
+          display: inline-flex;
+          height: 1em;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  article[description] {
   }
 }

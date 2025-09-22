@@ -23,3 +23,7 @@ window.clearIt = function() {
   if (output)
     [...output.childNodes].forEach(e => output.removeChild(e))
 }
+
+document.querySelector('div.repl-container button').addEventListener('click', event => {
+  clearIt()
+})
