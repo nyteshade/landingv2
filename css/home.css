@@ -19,6 +19,13 @@ html {
   }
 }
 
+img[sf-symbol] {
+  max-height: 1em;
+  vertical-align: middle;
+  margin: 0 0.2em;
+  display: inline-block;
+}
+
 section[new-link] {
   margin-top: 2em;
 
@@ -60,6 +67,8 @@ section[new-link] {
       select[scheme] {
         position: relative;
         text-align: right;
+        border-color: black;
+        border-width: 1px;
         border-right: 1px solid black;
         border-top-left-radius: 3px;
         border-bottom-left-radius: 3px;
@@ -69,7 +78,6 @@ section[new-link] {
         background-image: linear-gradient(0deg, darkred, red, indianred);
         color: white;
         text-shadow: 1px 1px 1px black;
-        border-color: black;
         appearance: none;
         padding: 0 0.75em;
         align-self: stretch;
@@ -77,6 +85,8 @@ section[new-link] {
 
         option {
           text-align: right;
+          border: none;
+          appearance: none;
         }
 
         &:focus {
